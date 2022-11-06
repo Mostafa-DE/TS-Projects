@@ -1,5 +1,9 @@
-export class NumbersCollection {
-  constructor(public data: number[]) {}
+import { BubbleSort } from "./Sort";
+
+export class NumbersCollection extends BubbleSort {
+  constructor(public data: number[]) {
+    super();
+  }
 
   get length(): number {
     return this.data.length;
@@ -12,4 +16,6 @@ export class NumbersCollection {
   swap(left: number, right: number): void {
     [this.data[left], this.data[right]] = [this.data[right], this.data[left]];
   }
+
+  sort(): void {}
 }

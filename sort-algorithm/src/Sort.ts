@@ -1,17 +1,12 @@
-interface ISort {
-  length: number;
-  compare(left: number, right: number): boolean;
-  swap(left: number, right: number): void;
-}
-
-export class BubbleSort {
-  constructor(public collection: ISort) {}
-
+export abstract class BubbleSort {
+  abstract length: number;
+  abstract compare(left: number, right: number): boolean;
+  abstract swap(left: number, right: number): void;
   sort(): void {
-    const { length } = this.collection;
+    const { length } = this;
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection.compare(j, j + 1)) this.collection.swap(j, j + 1);
+        if (this.compare(j, j + 1)) this.swap(j, j + 1);
       }
     }
   }
