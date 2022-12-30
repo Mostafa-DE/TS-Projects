@@ -41,6 +41,10 @@ export class Model<T extends HasId> {
         return this.attributes.get.bind(this.attributes);
     }
 
+    get getAll() {
+        return this.attributes.getAll.bind(this.attributes);
+    }
+
     set(update: T): void {
         this.attributes.set(update);
         this.events.trigger("change");
